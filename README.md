@@ -75,6 +75,9 @@ http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_service_discovery_eureka
 
 ### 4. Step: Configure API Gateway
 
+docs for Zuul proxy:
+http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_router_and_filter_zuul
+
 - Goto api.gateway folder / project
 - open /src/main/java/com/example/ApiGatewayApplication.java
 - set class annotation @EnableZuulProxy -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/api-gateway/src/main/java/com/example/Application.java)
