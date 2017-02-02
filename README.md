@@ -5,6 +5,7 @@
 - [Spring Boot] (https://projects.spring.io/spring-boot/)
 - [Spring cloud] (http://projects.spring.io/spring-cloud/) with Zuul, Eureka, Data Stream, etc.
 - [Spring Data JPA] (http://projects.spring.io/spring-data-jpa/)
+- [Project Lombok] (https://projectlombok.org/)
 
 ## The big Picture
 ![Scenario](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/Szenario.png)
