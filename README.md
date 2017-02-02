@@ -25,7 +25,7 @@
 ### 1. Step: Create Microservice-Projects
 To create the microservice-projects use [Spring initializr](http://start.spring.io/). As maven group id we always use 'com.example'. Here's the configuration for the single services (artifact id / dependencies):
 
-- api-gateway / web, actuator, zuul
+- api-gateway / web, actuator, zuul, eureka discovery
 - service-registry / actuator, eureka server
 - service-a / web, actuator, stream rabbit, h2, jpa, lombok, eureka discovery
 - service-b / web, actuator, stream rabbit, h2, jpa, lombok, eureka discovery
@@ -33,17 +33,57 @@ To create the microservice-projects use [Spring initializr](http://start.spring.
 - service-d / actuator, stream rabbit, h2, jpa, lombok, eureka discovery
 - logging / web, actuator, stream rabbit, h2, jpa, lombok
 
+Copy zip files into working directory and unzip.
+
+### 2. Step: Open Projects in IDE
+
+Import the maven projects into your IDE. Solve the dependency problems with
+
+mvn clean package
+
+To test a service start ist (over your IDE or maven). Then you cann call a actuator endpoint:
+
+http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#production-ready
+
 ### 2. Step: Configure Registry
 
-TODO
+docs for Eureka Server:
+http://cloud.spring.io/spring-cloud-static/Camden.SR4/#spring-cloud-eureka-server
+
+docs for Spring profiles:
+https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-environment
+
+- Goto service-registry folder / project
+- open /src/main/java/com/example/ServiceRegistryApplication.java
+- set class annotation @EnableEurekaServer
+- goto /src/main/resources
+- delete application.properties
+- create file application.yml
+- TODO link git
 
 ### 3. Step: Register Services with Registry
 
-TODO
+docs for Eureka clients:
+http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_service_discovery_eureka_clients
+
+- Goto service-x folder / project
+- open /src/main/java/com/example/xApplication.java
+- set class annotation @EnableEurekaClient
+- goto /src/main/resources
+- delete application.properties
+- create file application.yml
+- rename in application.yml application.name: ServiceX
+- TODO link git
 
 ### 4. Step: Configure API Gateway
 
-TODO
+- Goto api.gateway folder / project
+- open /src/main/java/com/example/ApiGatewayApplication.java
+- set class annotation @EnableZuulProxy
+- goto /src/main/resources
+- delete application.properties
+- create file application.yml
+- TODO link git
 
 ### 5. Step: Implement Rest APIs for Services A + B
 
