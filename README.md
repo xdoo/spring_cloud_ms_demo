@@ -47,11 +47,9 @@ http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#produ
 
 ### 2. Step: Configure Registry
 
-docs for Eureka Server:
-http://cloud.spring.io/spring-cloud-static/Camden.SR4/#spring-cloud-eureka-server
+[docs for Eureka Server] (http://cloud.spring.io/spring-cloud-static/Camden.SR4/#spring-cloud-eureka-server)
 
-docs for Spring profiles:
-https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-environment
+[docs for Spring profiles] (https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#beans-environment)
 
 - Goto service-registry folder / project
 - open /src/main/java/com/example/ServiceRegistryApplication.java
@@ -62,8 +60,7 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle
 
 ### 3. Step: Register Services with Registry
 
-docs for Eureka clients:
-http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_service_discovery_eureka_clients
+[docs for Eureka clients] (http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_service_discovery_eureka_clients)
 
 - Goto service-x folder / project
 - open /src/main/java/com/example/xApplication.java
@@ -75,8 +72,7 @@ http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_service_discovery_eureka
 
 ### 4. Step: Configure API Gateway
 
-docs for Zuul proxy:
-http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_router_and_filter_zuul
+[docs for Zuul proxy] (http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_router_and_filter_zuul)
 
 - Goto api.gateway folder / project
 - open /src/main/java/com/example/ApiGatewayApplication.java
