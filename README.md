@@ -10,6 +10,16 @@
 ## The big Picture
 ![Scenario](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/Szenario.png)
 
+### Request Scenarios
+#### First
+![First Request](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/First request.png)
+
+#### Second
+![Second Request](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/Second request.png)
+
+#### Third
+![Third Request](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/Third request.png)
+
 ## do it
 
 ### 1. Step: Create Microservice-Projects
