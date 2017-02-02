@@ -55,11 +55,10 @@ https://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle
 
 - Goto service-registry folder / project
 - open /src/main/java/com/example/ServiceRegistryApplication.java
-- set class annotation @EnableEurekaServer
+- set class annotation @EnableEurekaServer -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/service-registry/src/main/java/com/example/Application.java)
 - goto /src/main/resources
 - delete application.properties
-- create file application.yml
-- TODO link git
+- create file application.yml -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/service-registry/src/main/resources/application.yml)
 
 ### 3. Step: Register Services with Registry
 
@@ -68,22 +67,20 @@ http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_service_discovery_eureka
 
 - Goto service-x folder / project
 - open /src/main/java/com/example/xApplication.java
-- set class annotation @EnableEurekaClient
+- set class annotation @EnableEurekaClient -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/service-a/src/main/java/com/example/Application.java)
 - goto /src/main/resources
 - delete application.properties
 - create file application.yml
-- rename in application.yml application.name: ServiceX
-- TODO link git
+- rename in application.yml application.name: ServiceX -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/service-a/src/main/resources/application.yml)
 
 ### 4. Step: Configure API Gateway
 
 - Goto api.gateway folder / project
 - open /src/main/java/com/example/ApiGatewayApplication.java
-- set class annotation @EnableZuulProxy
+- set class annotation @EnableZuulProxy -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/api-gateway/src/main/java/com/example/Application.java)
 - goto /src/main/resources
 - delete application.properties
-- create file application.yml
-- TODO link git
+- create file application.yml -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/api-gateway/src/main/resources/application.yml)
 
 ### 5. Step: Implement Rest APIs for Services A + B
 
