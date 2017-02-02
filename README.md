@@ -7,7 +7,7 @@
 - [Spring Data JPA] (http://projects.spring.io/spring-data-jpa/)
 
 ## The big Picture
-![Scenario](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/Szenario.png)
+![Scenario](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/Szenario.png)
 
 ## do it
 
