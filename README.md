@@ -22,3 +22,30 @@ To create the microservice-projects use [Spring initializr](http://start.spring.
 - service-c / actuator, stream rabbit, h2, jpa, lombok, eureka discovery
 - service-d / actuator, stream rabbit, h2, jpa, lombok, eureka discovery
 - logging / web, actuator, stream rabbit, h2, jpa, lombok
+
+### 2. Step: Configure Registry
+
+TODO
+
+### 3. Step: Register Services with Registry
+
+TODO
+
+### 4. Step: Configure API Gateway
+
+TODO
+
+### 5. Step: Implement Rest APIs for Services A + B
+
+TODO
+
+### 6. Step: Implement Outbound Channels for Services A + B
+
+TODO
+
+### 7. Step: Implement Inbound Channels for Service C + D
+
+TODO
+
+
+
