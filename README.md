@@ -21,6 +21,29 @@
 #### Third
 ![Third Request](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/Third request.png)
 
+## Setup your System
+### Maven
+[Install Apache Maven] (https://maven.apache.org/install.html) on your System. If you behind a [proxy server] (https://maven.apache.org/guides/mini/guide-proxies.html) you have to modify your `{USER_HOME}/.m2/settings.xml` file:
+
+```xml
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                  http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+  <proxies>
+    <proxy>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>{{proxy-ip / proxy-name}}</host>
+      <port>{{proxy-port}}</port>
+      <nonProxyHosts>localhost</nonProxyHosts>
+    </proxy>
+  </proxies>
+
+</settings>
+```
+
 ## do it
 
 ### 1. Step: Create Microservice-Projects
@@ -30,20 +53,31 @@ To create the microservice-projects use [Spring initializr](http://start.spring.
 - service-registry / actuator, eureka server
 - service-a / web, actuator, stream rabbit, h2, jpa, lombok, eureka discovery
 - service-b / web, actuator, stream rabbit, h2, jpa, lombok, eureka discovery
-- service-c / actuator, stream rabbit, h2, jpa, lombok, eureka discovery
-- service-d / actuator, stream rabbit, h2, jpa, lombok, eureka discovery
+- service-c / web, actuator, stream rabbit, h2, jpa, lombok, eureka discovery
+- service-d / web, actuator, stream rabbit, h2, jpa, lombok, eureka discovery
 - logging / web, actuator, stream rabbit, h2, jpa, lombok
 
 Copy zip files into working directory and unzip.
 
 ### 2. Step: Open Projects in IDE
 
-Import the maven projects into your IDE. Solve the dependency problems with
+Import the maven projects into your IDE. Solve the dependency problems with you IDE (e.g. NetBeans) or plain Maven on the command line. With maven call on each project folder (e.g. {working directory}/service-a) `mvn clean package`. Alternatively you can use the [aggreate pom] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/pom.xml). Simply switch to your working directory an run on the command line `mvn clean package`.
 
-mvn clean package
+To test a service start it (over your IDE, command line or maven). 
 
-To test a service start ist (over your IDE or maven). Then you cann call a actuator endpoint:
+Command Line:
+```bash
+$ cd working-directory
+$ mvn clean package [creates a target directory inside every project / module folder]
+$ cd service-a/target [to this for any service]
+$ java -jar run service-a-0.0.1-SNAPSHOT.jar
+```
 
+Maven:
+```bash
+```
+
+Then you can call an actuator endpoint:
 http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#production-ready
 
 ### 2. Step: Configure Registry
