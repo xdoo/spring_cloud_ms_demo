@@ -7,6 +7,7 @@
 - [Spring Data JPA] (http://projects.spring.io/spring-data-jpa/)
 - [Project Lombok] (https://projectlombok.org/)
 - [for dependency management and building Apache Maven] (https://maven.apache.org/)
+- an IDE ([e.g. Netbeans](http://www.oracle.com/us/technologies/java/jdk-7-netbeans-download-432126.html))
 
 ## The big Picture
 ![Scenario](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/Szenario.png)
