@@ -89,12 +89,18 @@ Import the maven projects into your IDE. Solve the dependency problems with you 
 
 To test a service start it (over your IDE, command line or maven). 
 
-Maven on command line:
+Maven with plain java on command line:
 ```bash
 $ cd working-directory
 $ mvn clean package [creates a target directory inside every project / module folder]
 $ cd service-a/target [to this for any service]
 $ java -jar run service-a-0.0.1-SNAPSHOT.jar
+```
+
+Maven with spring-boot plugin:
+```bash
+$ cd working-directory/service-a
+$ mvn clean spring-boot:run
 ```
 
 Then you can call an actuator endpoint:
