@@ -7,6 +7,7 @@
 - [Spring Data JPA] (http://projects.spring.io/spring-data-jpa/)
 - [Project Lombok] (https://projectlombok.org/)
 - [for dependency management and building Apache Maven] (https://maven.apache.org/)
+- an IDE ([e.g. Netbeans](http://www.oracle.com/us/technologies/java/jdk-7-netbeans-download-432126.html))
 
 ## The big Picture
 ![Scenario](https://github.com/xdoo/spring_cloud_ms_demo/blob/master/images/Szenario.png)
@@ -59,13 +60,37 @@ To create the microservice-projects use [Spring initializr](http://start.spring.
 
 Copy zip files into working directory and unzip.
 
+Additionally you can add an [aggregate pom.xml] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/pom.xml) to your working directory:
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>com.example</groupId>
+  <artifactId>demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+ 
+  <modules>
+    <module>api-gateway</module>
+    <module>service-registry</module>
+    <module>service-a</module>
+    <module>service-b</module>
+    <module>service-c</module>
+    <module>service-d</module>
+  </modules>
+</project>
+```
+
 ### 2. Step: Open Projects in IDE
 
 Import the maven projects into your IDE. Solve the dependency problems with you IDE (e.g. NetBeans) or plain Maven on the command line. With maven call on each project folder (e.g. {working directory}/service-a) `mvn clean package`. Alternatively you can use the [aggreate pom] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/pom.xml). Simply switch to your working directory an run on the command line `mvn clean package`.
 
 To test a service start it (over your IDE, command line or maven). 
 
-Command Line:
+Maven with plain java on command line:
 ```bash
 $ cd working-directory
 $ mvn clean package [creates a target directory inside every project / module folder]
@@ -73,8 +98,10 @@ $ cd service-a/target [to this for any service]
 $ java -jar run service-a-0.0.1-SNAPSHOT.jar
 ```
 
-Maven:
+Maven with spring-boot plugin:
 ```bash
+$ cd working-directory/service-a
+$ mvn clean spring-boot:run
 ```
 
 Then you can call an actuator endpoint:
