@@ -136,7 +136,7 @@ http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#produ
 
 [docs for Zuul proxy] (http://cloud.spring.io/spring-cloud-static/Camden.SR4/#_router_and_filter_zuul)
 
-- Goto api.gateway folder / project
+- goto api.gateway folder / project
 - open /src/main/java/com/example/ApiGatewayApplication.java
 - set class annotation @EnableZuulProxy -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/api-gateway/src/main/java/com/example/Application.java)
 - goto /src/main/resources
@@ -145,7 +145,32 @@ http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#produ
 
 ### 5. Step: Implement Rest APIs for Services A + B
 
-TODO
+[docs for implementing REST APIs with Spring Boot] (http://docs.spring.io/spring-boot/docs/1.5.1.RELEASE/reference/htmlsingle/#howto-write-a-json-rest-service)
+
+[docs for request mappings] (http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html#mvc-ann-requestmapping-composed)
+
+[API docs for request mappings] (http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/PostMapping.html)
+
+- goto service-a folder / project
+- create a file called 'FooController.java' in /src/main/java/com/example
+- set class annotation @RestController -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/service-a/src/main/java/com/example/FooController.java)
+- create a method (e.g. public String hello())
+- set method annotation @GetMapping("/hello") -> [see sample file] (https://github.com/xdoo/spring_cloud_ms_demo/blob/master/service-a/src/main/java/com/example/FooController.java)
+
+After a restart of service-a you can test the service.
+
+With curl (command line):
+```bash
+$ curl localhost:[random_port]/hello
+```
+
+Or simply type the url `http://localhost:[random_port]` into your browser. If you can see something like "Hello World", your REST endpoint is working. Now you can try to access the service over the API gateway. Be sure, that the api-gateway service and the registry-service is up and running. Then simply type `http://localhost:8080/servicea/hello` into your browser bar. If you can see "Hello world" again, everything works fine. 
+
+With curl (command line):
+```bash
+$ curl localhost:8080/servicea/hello
+```
+Take a look to the docs and try some more coplex samples.
 
 ### 6. Step: Implement Outbound Channels for Services A + B
 
