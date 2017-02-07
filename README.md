@@ -170,7 +170,7 @@ With curl (command line):
 ```bash
 $ curl localhost:8080/servicea/hello
 ```
-Take a look to the docs and try some more coplex samples.
+Take a look to the docs and try some more complex samples.
 
 ### 6. Step: Implement Outbound Channels for Services A + B
 
