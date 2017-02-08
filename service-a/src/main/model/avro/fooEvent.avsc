@@ -1,0 +1,9 @@
+{
+  "namespace" : "com.example",
+  "type" : "record",
+  "name" : "FooEvent",
+  "fields" : [
+    {"name":"valueA","type":"string"},
+    {"name":"valueB","type":"string"}
+  ]
+}

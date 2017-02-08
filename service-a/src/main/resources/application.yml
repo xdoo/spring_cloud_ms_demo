@@ -15,6 +15,15 @@ eureka:
         preferIpAddress: true
         # push heartbeat every 10 seconds to the registry
         leaseRenewalIntervalInSeconds: 10
+        
+# Message channel configuration
+spring.cloud.stream.bindings:
+    # all configurations for the 'fooEvent' channel
+    fooEvent:
+        contentType: application/*+avro
+    # all configurations for the 'barEvent' channel
+    barEvent:
+        contentType: application/*+avro
 
 ---
 # DOCKER CONFIGURATION
