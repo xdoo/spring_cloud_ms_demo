@@ -16,5 +16,6 @@
     <module>service-b</module>
     <module>service-c</module>
     <module>service-d</module>
+    <module>schema-registry</module>
   </modules>
 </project>
