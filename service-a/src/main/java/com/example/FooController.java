@@ -1,6 +1,5 @@
 package com.example;
 
-import com.example.service.a.events.FooEvent;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
@@ -14,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
  * @author claus
  */
 @RestController
-@EnableBinding(FooOutbound.class)
+@EnableBinding(FooProcessor.class)
 public class FooController {
     
-    private final FooOutbound output;
+    private final FooProcessor processor;
 
-    public FooController(FooOutbound fooOutbound) {
-        this.output = fooOutbound;
+    public FooController(FooProcessor fooOutbound) {
+        this.processor = fooOutbound;
     }
     
     
@@ -35,7 +34,7 @@ public class FooController {
         // build message
         Message<FooEvent> msg = MessageBuilder.withPayload(fooEvent).build();
         // send message
-        this.output.fooEvent().send(msg);
+        this.processor.fooEvent().send(msg);
         return fooEvent.getValueA() + " und " + fooEvent.getValueB();
     }
     

@@ -7,7 +7,7 @@ import org.springframework.messaging.SubscribableChannel;
  *
  * @author claus
  */
-public interface FooInbound {
+public interface FooProcessor {
    
     public final String INPUT_FOO_EVENT = "fooEvent";
     
