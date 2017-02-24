@@ -41,6 +41,10 @@ eureka.client.serviceUrl.defaultZone: http://discovery:8761/eureka/
 # LOCAL CONFIGURATION
 spring:
     profiles: local
+#    rabbitmq:
+#        addresses: 192.168.29.130
+#    cloud:
+#        stream.rabbit.binder.adminAddresses: 192.168.29.130    
     
 # random server port to avoid port 
 # conflicts on localhost
