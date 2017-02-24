@@ -11,7 +11,6 @@ import org.springframework.cloud.netflix.feign.FeignClient;
  *
  * @author roland.werner
  */
-@FeignClient(value = "serviceb")
-public interface CustomerServiceFeignClient extends CustomerService {
-    
+@FeignClient(value = "serviceB" , fallback = ServiceBClientFallback.class)
+public interface CustomerServiceAlternativeClient extends CustomerService {
 }

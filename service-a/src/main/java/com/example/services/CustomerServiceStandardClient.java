@@ -6,7 +6,9 @@
 package com.example.services;
 
 import com.example.model.Customer;
-import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
@@ -19,16 +21,23 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class CustomerServiceStandardClient implements CustomerService {
 
-    private final RestTemplate restTemplate;
+    @LoadBalanced
+    @Bean
+    RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
+    
+    //TODO kriege das hier leider nicht ohne Autowired hin. Geht das irgendwie?
+    @Autowired
+    private RestTemplate restTemplate;
 
-    public CustomerServiceStandardClient(RestTemplateBuilder restTemplateBuilder) {
-        this.restTemplate = restTemplateBuilder.build();
+    public CustomerServiceStandardClient() {
     }
 
     @Override
     public Customer getCustomer(int id) {
         Customer customer = restTemplate.exchange(
-                "http://localhost:8080/serviceb/customer/{id}",
+                "http://serviceB/customer/{id}",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<Customer>() {
@@ -39,6 +48,6 @@ public class CustomerServiceStandardClient implements CustomerService {
     }
 
     public String sayHelloFromB() {
-        return this.restTemplate.getForObject("http://localhost:8080/serviceb/hello", String.class);
+        return this.restTemplate.getForObject("http://serviceB/hello", String.class);
     }
 }

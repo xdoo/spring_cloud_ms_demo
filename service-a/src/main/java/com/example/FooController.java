@@ -1,17 +1,16 @@
 package com.example;
 
 import com.example.model.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.services.CustomerServiceAlternativeClient;
+import com.example.services.CustomerServiceStandardClient;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.services.CustomerServiceFeignClient;
-import com.example.services.CustomerServiceStandardClient;
-import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  *
@@ -20,16 +19,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 @RestController
 @EnableBinding(FooProcessor.class)
 public class FooController {
-
+        
     private final FooProcessor processor;
+    private final CustomerServiceAlternativeClient customerServiceAlternativeClient;
+    private final CustomerServiceStandardClient customerServiceStandardClient;
 
-    @Autowired
-    private CustomerServiceFeignClient customerServiceFeignClient;
-    @Autowired
-    private CustomerServiceStandardClient customerServiceStandardClient;
-
-    public FooController(FooProcessor fooOutbound) {
+    public FooController(FooProcessor fooOutbound,
+            CustomerServiceAlternativeClient customerServiceAlternativeClient,
+            CustomerServiceStandardClient customerServiceStandardClient) {
         this.processor = fooOutbound;
+        this.customerServiceAlternativeClient = customerServiceAlternativeClient;
+        this.customerServiceStandardClient = customerServiceStandardClient;
     }
 
     @GetMapping("/hello")
@@ -54,7 +54,7 @@ public class FooController {
 
     @GetMapping("/customerWithFeign/{id}")
     public Customer customerWithFeign(@PathVariable("id") int id) {
-        return customerServiceFeignClient.getCustomer(id);
+        return customerServiceAlternativeClient.getCustomer(id);
     }
 
     @GetMapping("/customerWithoutFeign/{id}")
