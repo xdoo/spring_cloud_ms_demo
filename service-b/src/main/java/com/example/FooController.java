@@ -27,8 +27,8 @@ public class FooController {
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = "application/json")
     public Customer getCustomer(@PathVariable("id") int id) {
         Customer customer = new Customer();
-        customer.setVorname("Roland" + id);
-        customer.setNachname("Werner");
+        customer.setVorname("Johnny" + id);
+        customer.setNachname("Knoxville");
         return customer;
     }
 }
